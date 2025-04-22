@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const userRoutes = require("./src/routes/userRoutes");
+const postRoutes = require("./src/routes/postRoutes");
 const setupSwagger = require("./src/config/swagger"); // Swagger aqui
 const path = require("path");
 
@@ -12,7 +13,8 @@ app.use(express.json());
 setupSwagger(app); // Ativa o Swagger
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-app.use("/api", userRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/posts", postRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

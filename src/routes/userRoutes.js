@@ -27,7 +27,7 @@ const upload = require("./../config/upload.js");
  *       200:
  *         description: Lista de usuários
  */
-router.get("/users", userController.getAllUsers);
+router.get("/", userController.getAllUsers);
 
 /**
  * @swagger
@@ -47,7 +47,7 @@ router.get("/users", userController.getAllUsers);
  *       404:
  *         description: Usuário não encontrado
  */
-router.get("/users/:id", userController.getUser);
+router.get("/:id", userController.getUser);
 
 /**
  * @swagger
@@ -73,7 +73,7 @@ router.get("/users/:id", userController.getUser);
  *       201:
  *         description: Usuário criado
  */
-router.post("/users", upload.single("photo"), userController.createUser);
+router.post("/", upload.single("photo"), userController.createUser);
 
 /**
  * @swagger
@@ -91,7 +91,7 @@ router.post("/users", upload.single("photo"), userController.createUser);
  *       200:
  *         description: Usuário deletado
  */
-router.delete("/users/:id", userController.deleteUser);
+router.delete("/:id", userController.deleteUser);
 
 /**
  * @swagger
@@ -120,6 +120,6 @@ router.delete("/users/:id", userController.deleteUser);
  *       200:
  *         description: Usuário atualizado
  */
-router.put("/users/:id", userController.updateUser);
+router.put("/:id", userController.updateUser);
 
 module.exports = router;
