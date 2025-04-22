@@ -3,20 +3,12 @@ const router = express.Router();
 const userController = require("../controllers/userController");
 const upload = require("./../config/upload.js");
 
-
-/**
- * @swagger
- * tags:
- *   name: Usuários
- *   description: Gerenciamento de usuários
- */
-
 /**
  * @swagger
  * /api/users:
  *   get:
  *     summary: Lista todos os usuários
- *     tags: [users]
+ *     tags: [Users]
  *     parameters:
  *       - in: query
  *         name: name
@@ -34,7 +26,7 @@ router.get("/", userController.getAllUsers);
  * /api/users/{id}:
  *   get:
  *     summary: Busca usuário por ID
- *     tags: [users]
+ *     tags: [Users]
  *     parameters:
  *       - in: path
  *         name: id
@@ -54,7 +46,7 @@ router.get("/:id", userController.getUser);
  * /api/users:
  *   post:
  *     summary: Cria um novo usuários
- *     tags: [users]
+ *     tags: [Users]
  *     requestBody:
  *       required: true
  *       content:
@@ -80,7 +72,7 @@ router.post("/", upload.single("photo"), userController.createUser);
  * /api/users/{id}:
  *   delete:
  *     summary: Deleta um usuário
- *     tags: [users]
+ *     tags: [Users]
  *     parameters:
  *       - in: path
  *         name: id
@@ -98,7 +90,7 @@ router.delete("/:id", userController.deleteUser);
  * /api/users/{id}:
  *   put:
  *     summary: Atualiza um bruxo
- *     tags: [users]
+ *     tags: [Users]
  *     parameters:
  *       - in: path
  *         name: id
